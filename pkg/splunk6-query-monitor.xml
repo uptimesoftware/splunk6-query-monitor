@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uptime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uptimesoftware.com/erdc/erdc erdc"
+	xmlns="http://www.uptimesoftware.com/erdc/erdc" xmlns:upt="http://www.uptimesoftware.com/erdc/erdc"
+	version="4.0" target_grouping="other">
+
+	<class>Splunk6 Query Monitor</class>
+	<exec>JAVA_PLUGIN:UptimeSplunkSixQueryMonitor</exec>
+	<erdc_version>1.0</erdc_version>
+	<category>Applications - General</category>
+	<category_related></category_related>
+	<grid_info>
+		<supported_versions>7.3</supported_versions>
+		<supported_platforms>windows, linux</supported_platforms>
+		<upgrade_in_place>true</upgrade_in_place>
+		<requires_agent_scripts>false</requires_agent_scripts>
+	</grid_info>
+
+	<elements>
+		<element name="port" parameter_type="input" data_type="integer" gui_basic="1" range_type="0"
+			units="">
+			<control_options>size:10</control_options>
+			<default_value>8089</default_value>
+			<short_description>Port</short_description>
+			<long_description>Splunk server port number.
+			</long_description>
+			<validation_rule>
+				<alphanumeric />
+			</validation_rule>
+			<error_message>
+				<alphanumeric>required field</alphanumeric>
+			</error_message>
+			<gui_type>
+				<integer />
+			</gui_type>
+		</element>
+
+		<element name="username" parameter_type="input" data_type="string" gui_basic="1"
+			range_type="0">
+			<control_options>size:20</control_options>
+			<default_value />
+			<short_description>Username</short_description>
+			<long_description>Username</long_description>
+			<validation_rule>
+				<alphanumeric />
+			</validation_rule>
+			<error_message>
+				<alphanumeric>required field</alphanumeric>
+			</error_message>
+			<gui_type>
+				<string />
+			</gui_type>
+		</element>
+
+		<element name="password" parameter_type="input" data_type="string" gui_basic="1"
+			range_type="0" units="">
+			<control_options>size:20</control_options>
+			<default_value></default_value>
+			<short_description>Password</short_description>
+			<long_description>Password
+			</long_description>
+			<validation_rule>
+				<alphanumeric />
+			</validation_rule>
+			<error_message>
+				<alphanumeric>required field</alphanumeric>
+			</error_message>
+			<gui_type>
+				<password />
+			</gui_type>
+		</element>
+
+		<element name="splunkQuery" parameter_type="input" data_type="string" gui_basic="1"
+			range_type="0">
+			<control_options>width:40em</control_options>
+			<default_value />
+			<short_description>Splunk Query</short_description>
+			<long_description>Splunk query to run.</long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<string />
+			</gui_type>
+		</element>
+		
+		<element name="queryCount" parameter_type="output" data_type="integer" gui_basic="1"
+			range_type="0" units="results">
+			<control_options>size:8</control_options>
+			<default_value />
+			<short_description>Result count of Splunk query</short_description>
+			<long_description>Result count of Splunk query.</long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<integer />
+			</gui_type>
+		</element>
+
+		<element name="timer" parameter_type="output" data_type="integer" gui_basic="0"
+			range_type="0" units="ms">
+			<control_options>size:8</control_options>
+			<default_value />
+			<short_description>Response time</short_description>
+			<long_description>Response time in ms</long_description>
+			<validation_rule />
+			<error_message />
+			<gui_type>
+				<integer />
+			</gui_type>
+		</element>
+	</elements>
+
+	<help>Monitor Splunk query result.</help>
+</uptime>
